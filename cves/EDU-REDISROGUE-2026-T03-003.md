@@ -1,6 +1,6 @@
-**CVE-ID**: EDU-REDISSERVER-2026-T03-003  
+**CVE-ID**: EDU-REDISROGUE-2026-T03-003   
 **Title**: Unauthenticated Redis Server Running as Root Enabling Remote Code Execution via Module Loading  
-**Affected Lab**: Redis-Server  
+**Affected Lab**: redis-rogue   
 **Component**: Reddis 5.0.7  
 **Severity**: Critical  
 **CVSS Vector**: AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H  
@@ -12,15 +12,15 @@ Redis server version 5.0.7 lacks authentication and critically runs as **root** 
 
 
 **Proof of Concept**:  
-<img src="image-5.png" alt="exploitaion with msfconsole" width="800">
 
+<img width="800" height="591" alt="image-5" src="https://github.com/user-attachments/assets/f9bc1ac9-b0ea-4daf-9082-09ba6f1d1f8e" />
 
 Payload : on msf console use payload `linux/x64/meterpreter/reverse_tcp`  
 
 
 **Steps to Reproduce**:  
 1. Determine redis-server IP by using commands `sudo docker ps` followed by `sudo docker inspect [CONTAINERID]`. Or any other method of choice.
-2. Perform nmap scan on the found IP by also enabling the default scripts: `nmap -sV -sC -T5 -p- [Reddis-ServerIP]`. Output will mention that redis server is running on port 6379 with version `Redis key-value store 5.0.7`
+2. Perform nmap scan on the found IP by also enabling the default scripts: `nmap -sV -sC -T5 -p- [redis-rogueIP]`. Output will mention that redis server is running on port 6379 with version `Redis key-value store 5.0.7`
 3. A simple google search showed a writen exploit in [exploitdb](https://www.exploit-db.com/exploits/47195)
 4. open shell and type msfconsole
 5. search for exploit `redis_replication_cmd_exec`
