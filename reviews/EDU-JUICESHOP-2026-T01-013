@@ -6,9 +6,9 @@
 
 **Justification / Comments**:  
 When forwarding the packet to intruder and setting payload 10 times, we are able to forward all packets very quickly despite having CAPTCHA, making the system prone to brute force attacks.
-![Burp Intruder Results](1A.png)
-![Burp Intruder Results](1B.png)
-![Burp Intruder Results](1C.png)
+![Burp Intruder Results](1A.PNG)
+![Burp Intruder Results](1B.PNG)
+![Burp Intruder Results](1C.PNG)
 
 
 **Suggested Severity**: High  
